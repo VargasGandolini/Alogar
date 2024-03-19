@@ -10,20 +10,22 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Conexion {
     Connection con;
-    public Connection getConnection(){
-        try{
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            String myBd = "jdbc:postgresql://aws-0-us-west-1.pooler.supabase.com:5432/postgres?user=postgres.rxwtksozllsfigkhqxji&password=ALOGAR15032024";
-            con = DriverManager.getConnection(myBd,"postgres.rxwtksozllsfigkhqxji","ALOGAR15032024");
+    
+    public Connection getConnection() {
+        try {
+            // Cargar el driver de MySQL
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            // URL de conexión a la base de datos
+            String myBd = "jdbc:mysql://localhost:3306/ALOGAR";
+            
+            // Establecer la conexión con la base de datos
+            con = DriverManager.getConnection(myBd, "root", "");
             return con;
-        }catch (SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
+            // Manejo de excepciones
             System.out.println(e.toString());
         }
         return null;

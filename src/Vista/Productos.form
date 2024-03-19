@@ -312,7 +312,7 @@
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="1"/>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="TableRowSorter&lt;TableModel&gt; sorter = new TableRowSorter&lt;&gt;(TableProducto.getModel());&#xa;TableProducto.setRowSorter(sorter);&#xa;&#xa;sorter.setSortable(0, true);&#xa;&#xa;TableProducto.setAutoCreateRowSorter(true);">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="true">
                   <Title/>
@@ -342,7 +342,7 @@
               </TableColumnModel>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>

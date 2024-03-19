@@ -18,12 +18,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.table.TableRowSorter;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import javax.swing.RowSorter;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 
 /**
@@ -46,8 +48,9 @@ public final class Productos extends javax.swing.JFrame {
         AutoCompleteDecorator.decorate(cbxNombreProducto);
         proDao.ConsularProveedor(cbxProveedorPro);
         proDao.ConsularProducto(cbxNombreProducto);
-        cbxNombreProducto.setSelectedItem("");
         txtIdpro.setVisible(false);
+        cbxNombreProducto.setSelectedItem("");
+        txtCodigoProducto.requestFocus();
         txtCodigoProducto.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -313,6 +316,12 @@ public final class Productos extends javax.swing.JFrame {
             TableProducto.getColumnModel().getColumn(3).setPreferredWidth(150);
             TableProducto.getColumnModel().getColumn(4).setPreferredWidth(5);
         }
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(TableProducto.getModel());
+        TableProducto.setRowSorter(sorter);
+
+        sorter.setSortable(0, true);
+
+        TableProducto.setAutoCreateRowSorter(true);
 
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 1330, 420));
 
